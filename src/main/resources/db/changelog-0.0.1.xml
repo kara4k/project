@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- ================================= Create students table ================================= -->
+    <changeSet id="CREATE_STUDENTS_TABLE" author="me">
+        <createTable tableName="STUDENTS">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="FIRST_NAME" type="varchar(255)"/>
+            <column name="MIDDLE_NAME" type="varchar(255)"/>
+            <column name="LAST_NAME" type="varchar(255)"/>
+            <column name="GRADE" type="varchar(255)"/>
+            <column name="LOGIN" type="varchar(255)"/>
+            <column name="PASSWORD" type="varchar(255)"/>
+            <column name="PHONE" type="varchar(255)"/>
+            <column name="EMAIL" type="varchar(255)"/>
+            <column name="ABOUT" type="varchar(255)"/>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="STUDENTS"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ================================= Create teachers table ================================= -->
+    <changeSet id="CREATE_TEACHERS_TABLE" author="me">
+        <createTable tableName="TEACHERS">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="FIRST_NAME" type="varchar(255)"/>
+            <column name="MIDDLE_NAME" type="varchar(255)"/>
+            <column name="LAST_NAME" type="varchar(255)"/>
+            <column name="EXPERIENCE" type="varchar(255)"/>
+            <column name="LOGIN" type="varchar(255)"/>
+            <column name="PASSWORD" type="varchar(255)"/>
+            <column name="PHONE" type="varchar(255)"/>
+            <column name="EMAIL" type="varchar(255)"/>
+            <column name="ABOUT" type="varchar(255)"/>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="TEACHERS"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ================================= Create lessons table ================================= -->
+    <changeSet id="CREATE_LESSONS_TABLE" author="me">
+        <createTable tableName="LESSONS">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="START_DATE" type="BIGINT"/>
+            <column name="FINISH_DATE" type="BIGINT"/>
+            <column name="PRICE" type="DECIMAL"/>
+            <column name="STATUS" type="INTEGER"/>
+            <column name="TOPIC" type="varchar(255)"/>
+            <column name="DESCRIPTION" type="varchar(255)"/>
+
+            <column name="TEACHER_ID" type="BIGINT">
+                <constraints references="TEACHERS(ID)"
+                             foreignKeyName="FK_LESSON_TEACHER_ID" nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="LESSONS"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ================================= Create students_lessons table ================================= -->
+    <changeSet id="CREATE_STUDENTS_LESSONS_TABLE" author="me">
+        <createTable tableName="STUDENTS_LESSONS">
+            <column autoIncrement="true" name="ID" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="STUDENT_ID" type="BIGINT">
+                <constraints references="STUDENTS(ID)"
+                             foreignKeyName="FK_STUDENT_ID" nullable="false"/>
+            </column>
+            <column name="LESSON_ID" type="BIGINT">
+                <constraints references="LESSONS(ID)"
+                             foreignKeyName="FK_LESSON_ID" nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="STUDENTS_LESSONS"/>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>
