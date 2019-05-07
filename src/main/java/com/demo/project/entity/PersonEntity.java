@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
-public class PersonEntity extends AbstractEntity {
+public abstract class PersonEntity extends AbstractEntity {
 
     @Column(name = "FIRST_NAME")
     private String firstName;
