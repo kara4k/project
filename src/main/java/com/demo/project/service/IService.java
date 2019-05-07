@@ -2,12 +2,11 @@ package com.demo.project.service;
 
 import com.demo.project.dto.AbstractDto;
 
-import java.util.List;
 import java.util.Set;
 
 public interface IService<T extends AbstractDto> {
 
-    List<T> findAll();
+    Set<T> findAll();
 
     T findById(Long id);
 

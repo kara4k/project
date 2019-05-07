@@ -2,12 +2,11 @@ package com.demo.project.controller;
 
 import com.demo.project.dto.AbstractDto;
 
-import java.util.List;
 import java.util.Set;
 
 public interface IController<T extends AbstractDto> {
 
-    List<T> getAll();
+    Set<T> getAll();
 
     void createNew(final T dto);
 

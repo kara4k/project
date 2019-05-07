@@ -7,7 +7,6 @@ import com.demo.project.exception.NotFoundException;
 import com.demo.project.repository.IBaseRepository;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -25,10 +24,10 @@ public abstract class AbstractService<T extends AbstractDto, B extends AbstractE
     protected abstract String getNotFoundMessage(Long id);
 
     @Override
-    public List<T> findAll() {
+    public Set<T> findAll() {
         return repository.findAll().stream()
             .map(converter::convertToDto)
-            .collect(Collectors.toList());
+            .collect(Collectors.toSet());
     }
 
     @Override

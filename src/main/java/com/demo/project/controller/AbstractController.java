@@ -4,7 +4,6 @@ import com.demo.project.dto.AbstractDto;
 import com.demo.project.service.IService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Set;
 
 
@@ -17,7 +16,7 @@ public abstract class AbstractController<T extends AbstractDto> implements ICont
     }
 
     @GetMapping("/list")
-    public List<T> getAll() {
+    public Set<T> getAll() {
         return service.findAll();
     }
 

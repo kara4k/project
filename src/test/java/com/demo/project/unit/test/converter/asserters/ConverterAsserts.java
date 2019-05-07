@@ -1,4 +1,4 @@
-package com.demo.project.unit.converter;
+package com.demo.project.unit.test.converter.asserters;
 
 import com.demo.project.dto.LessonDto;
 import com.demo.project.dto.PersonDto;
@@ -11,21 +11,22 @@ import com.demo.project.entity.TeacherEntity;
 import org.junit.Assert;
 import org.springframework.util.CollectionUtils;
 
-final class ConverterAsserts {
+public final class ConverterAsserts {
 
-    private ConverterAsserts() {}
+    private ConverterAsserts() {
+    }
 
-    static void assertConverted(final StudentDto dto, final StudentEntity entity){
-        assertPersonConverted(dto,entity);
+    public static void assertConverted(final StudentDto dto, final StudentEntity entity) {
+        assertPersonConverted(dto, entity);
         Assert.assertEquals(dto.getGrade(), entity.getGrade());
     }
 
-    static void assertConverted(final TeacherDto dto, final TeacherEntity entity){
+    public static void assertConverted(final TeacherDto dto, final TeacherEntity entity) {
         assertPersonConverted(dto, entity);
         Assert.assertEquals(dto.getExperience(), entity.getExperience());
     }
 
-    static void assertConverted(final LessonDto dto, final LessonEntity entity){
+    public static void assertConverted(final LessonDto dto, final LessonEntity entity) {
         Assert.assertNotNull(dto);
         Assert.assertNotNull(entity);
 
