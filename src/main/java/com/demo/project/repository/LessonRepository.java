@@ -1,7 +1,8 @@
 package com.demo.project.repository;
 
 import com.demo.project.entity.LessonEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-public interface LessonRepository extends JpaRepository<LessonEntity, Long> {
+@Qualifier("LessonRepository")
+public interface LessonRepository extends IBaseRepository<LessonEntity> {
 }

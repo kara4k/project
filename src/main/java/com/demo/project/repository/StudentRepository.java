@@ -1,9 +1,9 @@
 package com.demo.project.repository;
 
 import com.demo.project.entity.StudentEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-public interface StudentRepository extends JpaRepository<StudentEntity, Long> {
-
+@Qualifier("StudentRepository")
+public interface StudentRepository extends IBaseRepository<StudentEntity> {
 
 }
