@@ -10,7 +10,7 @@ import java.util.Set;
 
 public abstract class AbstractController<T extends AbstractDto> implements IController<T> {
 
-    private IService<T> service;
+    private final IService<T> service;
 
     public AbstractController(final IService<T> service) {
         this.service = service;

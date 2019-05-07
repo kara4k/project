@@ -35,8 +35,7 @@ public abstract class AbstractService<T extends AbstractDto, B extends AbstractE
     public T findById(final Long id) {
         return converter.convertToDto(
             repository.findById(id)
-                .orElseThrow(() -> new NotFoundException(getNotFoundMessage(id)
-                )));
+                .orElseThrow(() -> new NotFoundException(getNotFoundMessage(id))));
     }
 
     @Override

@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService extends AbstractService<StudentDto, StudentEntity> {
 
-    public StudentService(@Qualifier("StudentRepository")
-                          final IBaseRepository<StudentEntity> repository,
+    public StudentService(@Qualifier("StudentRepository") final IBaseRepository<StudentEntity> repository,
                           final DtoDboConverter<StudentDto, StudentEntity> converter) {
         super(repository, converter);
     }
