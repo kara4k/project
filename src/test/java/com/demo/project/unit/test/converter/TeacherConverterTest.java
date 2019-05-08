@@ -4,7 +4,6 @@ import com.demo.project.converter.TeacherConverter;
 import com.demo.project.dto.TeacherDto;
 import com.demo.project.entity.TeacherEntity;
 import com.demo.project.unit.factory.TeacherObjFactory;
-import com.demo.project.unit.test.converter.asserters.ConverterTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

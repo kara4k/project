@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 public abstract class AbstractDboDtoFactory<T extends AbstractDto, B extends AbstractEntity>
-    implements DboDtoFactory<T, B> {
+    implements IDboDtoFactory<T, B> {
 
     @Override
     public Set<T> createDtoSet(final int size) {

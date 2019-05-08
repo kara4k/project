@@ -4,7 +4,7 @@ import com.demo.project.dto.AbstractDto;
 import com.demo.project.entity.AbstractEntity;
 import com.demo.project.repository.IBaseRepository;
 import com.demo.project.service.IService;
-import com.demo.project.unit.factory.DboDtoFactory;
+import com.demo.project.unit.factory.IDboDtoFactory;
 import org.junit.Assert;
 import org.mockito.Mockito;
 import org.springframework.util.CollectionUtils;
@@ -29,7 +29,7 @@ public class ServiceAsserter implements IServiceAsserter {
     @Override
     public <T extends AbstractDto, B extends AbstractEntity> void assertGetAll(final IService<T> service,
                                                                                final IBaseRepository<B> repository,
-                                                                               final DboDtoFactory<T, B> objectFactory) {
+                                                                               final IDboDtoFactory<T, B> objectFactory) {
 
         final List<B> entities = objectFactory.createEntityList(1);
         Mockito.when(repository.findAll()).thenReturn(entities);
@@ -45,7 +45,7 @@ public class ServiceAsserter implements IServiceAsserter {
     @Override
     public <T extends AbstractDto, B extends AbstractEntity> void assertFindById(final IService<T> service,
                                                                                  final IBaseRepository<B> repository,
-                                                                                 final DboDtoFactory<T, B> objectFactory) {
+                                                                                 final IDboDtoFactory<T, B> objectFactory) {
 
         final B entity = objectFactory.createEntity();
 
@@ -61,7 +61,7 @@ public class ServiceAsserter implements IServiceAsserter {
     @Override
     public <T extends AbstractDto, B extends AbstractEntity> void assertSave(final IService<T> service,
                                                                              final IBaseRepository<B> repository,
-                                                                             final DboDtoFactory<T, B> objectFactory) {
+                                                                             final IDboDtoFactory<T, B> objectFactory) {
 
         final T dto = objectFactory.createDto();
 
@@ -73,7 +73,7 @@ public class ServiceAsserter implements IServiceAsserter {
     @Override
     public <T extends AbstractDto, B extends AbstractEntity> void assertSaveAll(final IService<T> service,
                                                                                 final IBaseRepository<B> repository,
-                                                                                final DboDtoFactory<T, B> objectFactory) {
+                                                                                final IDboDtoFactory<T, B> objectFactory) {
 
         final Set<T> dtos = objectFactory.createDtoSet(4);
 
@@ -94,7 +94,7 @@ public class ServiceAsserter implements IServiceAsserter {
     @Override
     public <T extends AbstractDto, B extends AbstractEntity> void assertDeleteAll(final IService<T> service,
                                                                                   final IBaseRepository<B> repository,
-                                                                                  final DboDtoFactory<T, B> objectFactory) {
+                                                                                  final IDboDtoFactory<T, B> objectFactory) {
         final Set<T> dtos = objectFactory.createDtoSet(3);
 
         callTimes(() -> service.deleteAll(dtos), CALL_COUNT);

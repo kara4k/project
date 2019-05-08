@@ -8,7 +8,6 @@ import com.demo.project.entity.LessonEntity;
 import com.demo.project.unit.factory.LessonObjFactory;
 import com.demo.project.unit.factory.StudentObjFactory;
 import com.demo.project.unit.factory.TeacherObjFactory;
-import com.demo.project.unit.test.converter.asserters.ConverterTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

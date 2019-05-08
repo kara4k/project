@@ -1,4 +1,4 @@
-package com.demo.project.unit.test.converter.asserters;
+package com.demo.project.unit.test.converter;
 
 import com.demo.project.dto.AbstractDto;
 import com.demo.project.entity.AbstractEntity;

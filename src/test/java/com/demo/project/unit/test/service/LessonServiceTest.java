@@ -72,7 +72,7 @@ public class LessonServiceTest extends AbstractServiceTest {
     @Override
     @Test
     public void deleteAllTest() {
-        serviceAsserter.assertSaveAll(service, repository, objectFactory);
+        serviceAsserter.assertDeleteAll(service, repository, objectFactory);
     }
 
 

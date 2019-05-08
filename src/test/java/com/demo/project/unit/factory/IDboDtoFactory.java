@@ -6,7 +6,7 @@ import com.demo.project.entity.AbstractEntity;
 import java.util.List;
 import java.util.Set;
 
-public interface DboDtoFactory<T extends AbstractDto, B extends AbstractEntity> {
+public interface IDboDtoFactory<T extends AbstractDto, B extends AbstractEntity> {
 
     T createDto();
 
